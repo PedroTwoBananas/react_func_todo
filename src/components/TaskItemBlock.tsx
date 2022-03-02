@@ -1,11 +1,16 @@
 import React from 'react'
+import TaskInterface from '../interfaces/TaskInterface'
 import TaskItem from './TaskItem'
 import EditTaskItem from './EditTaskItem'
 
-const TaskItemBlock = () => {
+interface TaskItemProps {
+   task: TaskInterface
+}
+
+const TaskItemBlock = ({ task }: TaskItemProps) => {
    return (
       <>
-         <TaskItem />
+         <TaskItem task={task} />
          <EditTaskItem />
       </>
    )

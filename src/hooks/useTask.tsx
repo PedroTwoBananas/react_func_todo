@@ -16,7 +16,7 @@ export default function useTask() {
       })
    }, [])
 
-   const deleteAllDone = useCallback(() => {
+   const deleteAllChecked = useCallback(() => {
       setTasks((prevState) => prevState.filter((task) => !task.isDone))
    }, [])
 
@@ -29,7 +29,7 @@ export default function useTask() {
       })
    }, [])
 
-   const markAllAsDone = useCallback(() => {
+   const markAllTasks = useCallback(() => {
       setTasks((prevState) => {
          return prevState.map((task) => {
             if (task.isDone) return task
@@ -51,9 +51,9 @@ export default function useTask() {
       tasks,
       addTask,
       deleteTask,
-      deleteAllDone,
+      deleteAllChecked,
       markTask,
-      markAllAsDone,
+      markAllTasks,
       editTask,
    }
 }
