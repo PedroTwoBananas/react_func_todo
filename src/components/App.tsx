@@ -22,7 +22,12 @@ const App = () => {
             markAllTasks={markAllTasks}
             deleteAllChecked={deleteAllChecked}
          />
-         <TaskList tasks={tasks} deleteTask={deleteTask} markTask={markTask} />
+         <TaskList
+            tasks={tasks}
+            deleteTask={deleteTask}
+            markTask={markTask}
+            editTask={editTask}
+         />
       </AppWrapper>
    )
 }

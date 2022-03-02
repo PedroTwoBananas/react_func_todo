@@ -6,9 +6,10 @@ interface TaskListProps {
    tasks: TaskInterface[]
    deleteTask: (id: string) => void
    markTask: (id: string) => void
+   editTask: (id: string, value: string) => void
 }
 
-const TaskList = ({ tasks, deleteTask, markTask }: TaskListProps) => {
+const TaskList = ({ tasks, deleteTask, markTask, editTask }: TaskListProps) => {
    return (
       <ul>
          {tasks.map((task) => {
@@ -18,6 +19,7 @@ const TaskList = ({ tasks, deleteTask, markTask }: TaskListProps) => {
                   task={task}
                   deleteTask={deleteTask}
                   markTask={markTask}
+                  editTask={editTask}
                />
             )
          })}

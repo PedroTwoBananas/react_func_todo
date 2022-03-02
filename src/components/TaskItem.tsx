@@ -7,9 +7,15 @@ interface TaskItemProps {
    task: TaskInterface
    deleteTask: (id: string) => void
    markTask: (id: string) => void
+   changeTask: () => void
 }
 
-const TaskItem = ({ task, deleteTask, markTask }: TaskItemProps) => {
+const TaskItem = ({
+   task,
+   deleteTask,
+   markTask,
+   changeTask,
+}: TaskItemProps) => {
    const clickToDelete = useCallback(() => {
       deleteTask(task.id)
    }, [deleteTask, task.id])
@@ -17,6 +23,10 @@ const TaskItem = ({ task, deleteTask, markTask }: TaskItemProps) => {
    const clickToMark = useCallback(() => {
       markTask(task.id)
    }, [markTask, task.id])
+
+   const clickToChange = useCallback(() => {
+      changeTask()
+   }, [changeTask])
 
    return (
       <Item>
@@ -28,7 +38,7 @@ const TaskItem = ({ task, deleteTask, markTask }: TaskItemProps) => {
             {!task.isDone && (
                <>
                   <Button onClick={clickToMark}>Отметить как выполнено</Button>
-                  <Button>Изменить</Button>
+                  <Button onClick={clickToChange}>Изменить</Button>
                </>
             )}
          </ButtonBlock>
