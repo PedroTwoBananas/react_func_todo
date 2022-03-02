@@ -24,7 +24,7 @@ export default function useTask() {
       setTasks((prevState) => {
          return prevState.map((task) => {
             if (task.id !== id) return task
-            return { ...task, isDone: !task.isDone }
+            return { ...task, isDone: true }
          })
       })
    }, [])

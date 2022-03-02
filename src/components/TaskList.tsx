@@ -5,9 +5,10 @@ import TaskItemBlock from './TaskItemBlock'
 interface TaskListProps {
    tasks: TaskInterface[]
    deleteTask: (id: string) => void
+   markTask: (id: string) => void
 }
 
-const TaskList = ({ tasks, deleteTask }: TaskListProps) => {
+const TaskList = ({ tasks, deleteTask, markTask }: TaskListProps) => {
    return (
       <ul>
          {tasks.map((task) => {
@@ -16,6 +17,7 @@ const TaskList = ({ tasks, deleteTask }: TaskListProps) => {
                   key={task.id}
                   task={task}
                   deleteTask={deleteTask}
+                  markTask={markTask}
                />
             )
          })}

@@ -6,12 +6,17 @@ import { ButtonBlock, Item, TextBlock } from '../styles/TaskItemStyle'
 interface TaskItemProps {
    task: TaskInterface
    deleteTask: (id: string) => void
+   markTask: (id: string) => void
 }
 
-const TaskItem = ({ task, deleteTask }: TaskItemProps) => {
+const TaskItem = ({ task, deleteTask, markTask }: TaskItemProps) => {
    const clickToDelete = useCallback(() => {
       deleteTask(task.id)
    }, [deleteTask, task.id])
+
+   const clickToMark = useCallback(() => {
+      markTask(task.id)
+   }, [markTask, task.id])
 
    return (
       <Item>
@@ -20,8 +25,12 @@ const TaskItem = ({ task, deleteTask }: TaskItemProps) => {
          </TextBlock>
          <ButtonBlock>
             <Button onClick={clickToDelete}>Удалить</Button>
-            <Button>Отметить как выполнено</Button>
-            <Button>Изменить</Button>
+            {!task.isDone && (
+               <>
+                  <Button onClick={clickToMark}>Отметить как выполнено</Button>
+                  <Button>Изменить</Button>
+               </>
+            )}
          </ButtonBlock>
       </Item>
    )
