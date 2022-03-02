@@ -18,7 +18,7 @@ const App = () => {
    return (
       <AppWrapper>
          <Header addTask={addTask} />
-         <TaskList tasks={tasks} />
+         <TaskList tasks={tasks} deleteTask={deleteTask} />
       </AppWrapper>
    )
 }

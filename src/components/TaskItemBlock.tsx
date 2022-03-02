@@ -5,12 +5,13 @@ import EditTaskItem from './EditTaskItem'
 
 interface TaskItemProps {
    task: TaskInterface
+   deleteTask: (id: string) => void
 }
 
-const TaskItemBlock = ({ task }: TaskItemProps) => {
+const TaskItemBlock = ({ task, deleteTask }: TaskItemProps) => {
    return (
       <>
-         <TaskItem task={task} />
+         <TaskItem task={task} deleteTask={deleteTask} />
          <EditTaskItem />
       </>
    )
