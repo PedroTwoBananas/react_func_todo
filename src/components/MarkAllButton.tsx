@@ -9,4 +9,4 @@ const MarkAllButton = ({ markAllTasks }: MarkAllButtonProsp) => {
    return <Button onClick={markAllTasks}>Отметить всё как выполнено</Button>
 }
 
-export default MarkAllButton
+export default React.memo(MarkAllButton)

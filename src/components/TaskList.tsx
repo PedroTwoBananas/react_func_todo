@@ -27,4 +27,4 @@ const TaskList = ({ tasks, deleteTask, markTask, editTask }: TaskListProps) => {
    )
 }
 
-export default TaskList
+export default React.memo(TaskList)

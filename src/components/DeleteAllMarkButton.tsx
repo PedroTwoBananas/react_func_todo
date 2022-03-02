@@ -11,4 +11,4 @@ const DeleteAllMarkButton = ({
    return <Button onClick={deleteAllChecked}>Удалить все выполненные</Button>
 }
 
-export default DeleteAllMarkButton
+export default React.memo(DeleteAllMarkButton)

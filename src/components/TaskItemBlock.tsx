@@ -33,4 +33,4 @@ const TaskItemBlock = ({
    )
 }
 
-export default TaskItemBlock
+export default React.memo(TaskItemBlock)

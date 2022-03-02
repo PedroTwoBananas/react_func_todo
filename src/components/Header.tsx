@@ -21,4 +21,4 @@ const Header = ({ addTask, markAllTasks, deleteAllChecked }: HeaderProps) => {
    )
 }
 
-export default Header
+export default React.memo(Header)
