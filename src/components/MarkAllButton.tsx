@@ -1,12 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { markAllTasks } from '../redux/actions'
 import { Button } from '../styles/ButtonStyle'
 
-interface MarkAllButtonProsp {
-   markAllTasks: () => void
-}
+const MarkAllButton = () => {
+   const dispatch = useDispatch()
 
-const MarkAllButton = ({ markAllTasks }: MarkAllButtonProsp) => {
-   return <Button onClick={markAllTasks}>Отметить всё как выполнено</Button>
+   return (
+      <Button onClick={() => dispatch(markAllTasks())}>
+         Отметить всё как выполнено
+      </Button>
+   )
 }
 
 export default React.memo(MarkAllButton)

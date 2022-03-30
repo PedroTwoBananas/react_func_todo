@@ -1,14 +1,16 @@
 import React from 'react'
+import { useDispatch } from 'react-redux'
+import { deleteAllChecked } from '../redux/actions'
 import { Button } from '../styles/ButtonStyle'
 
-interface DeleteAllMarkButtonProps {
-   deleteAllChecked: () => void
-}
+const DeleteAllMarkButton = () => {
+   const dispatch = useDispatch()
 
-const DeleteAllMarkButton = ({
-   deleteAllChecked,
-}: DeleteAllMarkButtonProps) => {
-   return <Button onClick={deleteAllChecked}>Удалить все выполненные</Button>
+   return (
+      <Button onClick={() => dispatch(deleteAllChecked())}>
+         Удалить все выполненные
+      </Button>
+   )
 }
 
 export default React.memo(DeleteAllMarkButton)

@@ -1,16 +1,15 @@
 import uniqid from 'uniqid'
 import React, { useState, useCallback } from 'react'
-import TaskInterface from '../interfaces/TaskInterface'
 import { TaskFormBlock } from '../styles/TaskFormStyle'
 import { Button } from '../styles/ButtonStyle'
 import { Input } from '../styles/InputStyle'
+import { addTask } from '../redux/actions'
+import { useDispatch } from 'react-redux'
 
-interface TaskFormProps {
-   addTask: (value: TaskInterface) => void
-}
-
-const TaskForm = ({ addTask }: TaskFormProps) => {
+const TaskForm = () => {
    const [textTask, setTextTask] = useState<string>('')
+
+   const dispatch = useDispatch()
 
    const handleInput = useCallback((e: React.FormEvent<HTMLInputElement>) => {
       setTextTask(e.currentTarget.value)
@@ -22,9 +21,9 @@ const TaskForm = ({ addTask }: TaskFormProps) => {
          description: textTask,
          isDone: false,
       }
-      addTask(initialTask)
+      dispatch(addTask(initialTask))
       setTextTask('')
-   }, [addTask, textTask])
+   }, [dispatch, textTask])
    return (
       <TaskFormBlock>
          <Input

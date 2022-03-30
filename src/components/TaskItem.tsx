@@ -1,28 +1,25 @@
-import React, { useCallback } from 'react'
+import { useCallback } from 'react'
+import { useDispatch } from 'react-redux'
 import TaskInterface from '../interfaces/TaskInterface'
+import { deleteTask, markTask } from '../redux/actions'
 import { Button } from '../styles/ButtonStyle'
 import { ButtonBlock, Item, TextBlock } from '../styles/TaskItemStyle'
 
 interface TaskItemProps {
    task: TaskInterface
-   deleteTask: (id: string) => void
-   markTask: (id: string) => void
    changeTask: () => void
 }
 
-const TaskItem = ({
-   task,
-   deleteTask,
-   markTask,
-   changeTask,
-}: TaskItemProps) => {
+const TaskItem = ({ task, changeTask }: TaskItemProps) => {
+   const dispatch = useDispatch()
+
    const clickToDelete = useCallback(() => {
-      deleteTask(task.id)
-   }, [deleteTask, task.id])
+      dispatch(deleteTask(task.id))
+   }, [dispatch, task.id])
 
    const clickToMark = useCallback(() => {
-      markTask(task.id)
-   }, [markTask, task.id])
+      dispatch(markTask(task.id))
+   }, [dispatch, task.id])
 
    const clickToChange = useCallback(() => {
       changeTask()
